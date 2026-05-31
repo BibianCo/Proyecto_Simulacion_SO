@@ -228,8 +228,7 @@ def main_menu() -> str:
         ("1", "Gestión de Procesos"),
         ("2", "Gestión de Memoria"),
         ("3", "Sistema de Archivos"),
-        ("4", "Métricas del Sistema"),
-        ("5", "Demostración Completa (auto)"),
+        ("4", "Demostración Completa (auto)"),
         ("0", "Salir"),
     ]
     for key, label in options:

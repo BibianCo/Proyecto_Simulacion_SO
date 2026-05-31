@@ -7,6 +7,7 @@ Cada sección del menú demuestra un concepto diferente de SO.
 """
 import time
 import sys
+import random
 
 from process.process import Process
 from process.schedulers.round_robin import RoundRobinScheduler
@@ -31,14 +32,19 @@ def demo_processes(scheduler_type: SchedulerType = SchedulerType.ROUND_ROBIN):
     ui.clear()
     print(ui.header(f"SIMULADOR — {scheduler_type.value}"))
 
-    # Crear procesos de ejemplo
-    procs = [
-        Process("calc",   priority=8, burst_time=6),
-        Process("editor", priority=5, burst_time=4),
-        Process("player", priority=3, burst_time=8),
-        Process("browser",priority=7, burst_time=5),
-        Process("compile",priority=9, burst_time=3),
-    ]
+    # Nombres aleatorios para los procesos
+    names_pool = ["calc", "editor", "player", "browser", "compile", "mail", "spotify", "vscode", "terminal", "docker"]
+    
+    # Cantidad aleatoria de procesos (entre 4 y 6)
+    num_procs = random.randint(4, 6)
+    procs = []
+    
+    # Seleccionar nombres sin repetir y asignar atributos al azar
+    selected_names = random.sample(names_pool, num_procs)
+    for name in selected_names:
+        prio  = random.randint(1, 10)
+        burst = random.randint(3, 10)
+        procs.append(Process(name, priority=prio, burst_time=burst))
 
     # Seleccionar planificador
     if scheduler_type == SchedulerType.ROUND_ROBIN:
@@ -211,10 +217,6 @@ def main():
         elif opt == "3":
             demo_filesystem()
         elif opt == "4":
-            # Mostrar métricas de la última sesión de procesos
-            print(ui.warning("  Ejecuta primero la opción 1 para generar métricas."))
-            ui.pause()
-        elif opt == "5":
             demo_full()
         elif opt == "0":
             print(ui.success("\n  ¡Hasta luego!\n"))
