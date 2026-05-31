@@ -8,7 +8,7 @@
 
 ## 📋 Descripción
 
-Simulador académico de un Sistema Operativo escrito en Python 3, orientado a la
+Este es un simulador académico de un Sistema Operativo escrito en Python 3, orientado a la
 enseñanza de los tres subsistemas fundamentales:
 
 | Módulo | Conceptos demostrados |
@@ -179,7 +179,3 @@ TICK_DELAY          = 0.05 # Velocidad de la simulación (segundos)
 - Silberschatz, A., Galvin, P. B., & Gagne, G. — *Operating System Concepts* (10ª ed.)
 - Tanenbaum, A. — *Modern Operating Systems* (4ª ed.)
 - UPTC — Material de cátedra Sistemas Operativos
-
----
-
-*Desarrollado con Python 3 · Sin dependencias externas · Arquitectura modular OOP*
